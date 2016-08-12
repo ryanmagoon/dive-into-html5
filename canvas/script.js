@@ -1,3 +1,5 @@
+/* making the cartesian grid */
+
 var c_canvas = document.getElementById("c")
 var context = c_canvas.getContext("2d")
 
@@ -38,12 +40,29 @@ context.font = "bold 12px sans-serif"
 context.fillText("x", 248, 43)
 context.fillText("y", 58, 165)
 
+// from the top left of the text's bounding box
 context.textBaseline = "top"
 context.fillText("( 0 , 0 )", 8, 5)
 
+// from the bottom right of the text's bounding box
 context.textAlign = "right"
 context.textBaseline = "bottom"
 context.fillText("( 500 , 375 )", 492, 370)
 
+// drawing the dots as rectangles because I don't know how to draw circles yet.
 context.fillRect(0, 0, 3, 3)
 context.fillRect(497, 372, 3, 3)
+
+/* gradient demo */
+
+var d_canvas = document.getElementById("d")
+context = d_canvas.getContext("2d")
+
+// create the gradient style
+var my_gradient = context.createLinearGradient(0, 0, 300, 0)
+my_gradient.addColorStop(0, "black")
+my_gradient.addColorStop(1, "white")
+
+// fill in the rectangle with my gradient
+context.fillStyle = my_gradient
+context.fillRect(0, 0, 300, 225)
